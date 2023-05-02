@@ -1,3 +1,4 @@
+from pickle import FALSE
 from flask import Flask, request, jsonify
 import numpy as np
 import tensorflow as tf
@@ -49,4 +50,4 @@ def detect_fruit():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=FALSE,host='0.0.0.0')
