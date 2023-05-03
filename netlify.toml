@@ -7,7 +7,7 @@
 
 [[redirects]]
   from = "/*"
-  to = "/fruit.py"
+  to = "/"
   status = 200
 
 [[headers]]
