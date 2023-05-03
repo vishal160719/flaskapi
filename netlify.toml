@@ -1,5 +1,5 @@
 [build]
-  command = "python app.py"
+  command = "python fruit.py"
   publish = "public"
   environment = { 
     PYTHON_VERSION = "3.10.6" 
