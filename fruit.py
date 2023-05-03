@@ -1,5 +1,5 @@
 from pickle import FALSE
-from flask import Flask, request, jsonify
+from flask import Flask, make_response, request, jsonify
 import numpy as np
 import tensorflow as tf
 from PIL import Image
@@ -15,6 +15,10 @@ input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
 # Define the API endpoint for fruit detection
+@app.route('/', methods=['GET'])
+@cross_origin()
+def home():
+     return "Hello"
 @app.route('/detect-fruit', methods=['POST'])
 @cross_origin()
 def detect_fruit():
@@ -45,9 +49,12 @@ def detect_fruit():
         "confidence": float(confidence)
     }
 
+    
     if confidence < 0.4:
             return jsonify("No class")
     return jsonify(response)
+
+    
 
 if __name__ == '__main__':
     app.run(debug=FALSE,host='0.0.0.0')
