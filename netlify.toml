@@ -1,0 +1,17 @@
+[build]
+  command = "python fruit.py"
+  publish = "public"
+  environment = { 
+    PYTHON_VERSION = "3.10.6" 
+  }
+
+[[redirects]]
+  from = "/*"
+  to = "/fruit.py"
+  status = 200
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+      X-Frame-Options = "SAMEORIGIN"
+      X-XSS-Protection = "1; mode=block"
